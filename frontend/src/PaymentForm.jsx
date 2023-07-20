@@ -49,7 +49,6 @@ const PaymentForm = () => {
   };
 
   const handlePaymentResult = (result) => {
-    console.log("result-->", result);
     if (result.error) {
       console.error(result.error);
     } else {
