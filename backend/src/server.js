@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")(
-  "sk_test_51N8eOaSBMLlszcWa5bMH5JLlQlaL34oNkltqwJDgwjcOa9bqUSr8DcMaoITGnGjB7qguxL6l3NrAAAhLodGXYKc300Hxxx7qRo"
+  "<your stripe secret key>"
 );
 const app = express();
 const port = 3000;
@@ -16,17 +16,17 @@ app.post("/api/create-payment-intent", async (req, res) => {
       description: "Test development",
 
       shipping: {
-        name: "Kshitij ",
+        name: "<customer-anem>",
         address: {
-          line1: "Khadki Townsend St",
+          line1: "Townsend St",
           postal_code: "98140",
           city: "San Francisco",
           state: "CA",
-          country: "IND",
+          country: "US",
         },
       },
       amount: amount,
-      currency: "inr",
+      currency: "USD",
       payment_method_types: ["card"],
     });
     console.log(paymentIntent);
