@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import PaymentForm from "./PaymentForm";
 
-function App() {
-  const [count, setCount] = useState(0)
+const stripePromise = loadStripe(
+  "pk_test_51N8eOaSBMLlszcWaZ3hbLqSCSuj0bccPBzWaJicaRhrEbUhUdHLmsFAmgCCgLwgMwfj4jQ6CKY5RKBUFCHRB8Ww800MMrJiICE"
+);
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="App">
+      <h1>My Stripe App</h1>
+      <Elements stripe={stripePromise}>
+        <PaymentForm />
+      </Elements>
+    </div>
+  );
+};
 
-export default App
+export default App;
