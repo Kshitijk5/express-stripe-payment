@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
 
 const stripePromise = loadStripe(
-  "pk_test_51N8eOaSBMLlszcWaZ3hbLqSCSuj0bccPBzWaJicaRhrEbUhUdHLmsFAmgCCgLwgMwfj4jQ6CKY5RKBUFCHRB8Ww800MMrJiICE"
+  "<your stripe publishable key>"
 );
 
 const App = () => {
